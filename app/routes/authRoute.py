@@ -15,3 +15,12 @@ router = APIRouter(
 def login(data:authSchema.LoginRequestModel):
     newData = authController.loginController(data)
     return newData
+
+@router.post(
+    '/register',
+    description='Register User',
+    response_model=authSchema.RegisterResponseModel
+)
+def register(data:authSchema.RegisterRequestModel):
+    newUser = authController.registerController(data)
+    return newUser

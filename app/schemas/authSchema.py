@@ -25,3 +25,16 @@ class LoginResponseModel(BaseModel):
    class Config:
       orm_mode = True
       getter_dict = peeweeUtil.PeeweeGetterDict
+
+class RegisterRequestModel(LoginRequestModel):
+   first_name:str
+   last_name:str
+   phone: str
+   address:str
+   city: str
+
+class RegisterResponseModel(RegisterRequestModel):
+   id: int
+   class Config:
+      orm_mode = True
+      getter_dict = peeweeUtil.PeeweeGetterDict

@@ -10,3 +10,8 @@ def loginController(data:authSchema.LoginRequestModel)-> authSchema.LoginRespons
       raise HTTPException(status_code=400, detail="Password Incorrect")
     token = authService.generateToken(resp_service)
     return token
+
+def registerController(data:authSchema.RegisterRequestModel) -> authSchema.RegisterResponseModel:
+  
+  resp_service = authService.registerUser(data.dict())
+  return resp_service
